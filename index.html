@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>zefys-url-builder-v1.4</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Start: Header Blue -->
+    <header class="header-blue" style="padding: 0px 0px 30px;">
+        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navcol-1"></div>
+            </div>
+        </nav>
+        <div class="container hero">
+            <div class="row">
+                <!-- Start: Text -->
+                <div class="col-12 col-lg-5 col-xl-5 offset-xl-1" style="margin: 0px 0px 0px 60px;">
+                    <h1 style="margin: 0px 0px 24px;">URL-Generator zum Abruf retrodigitalisierter DDR-Presse</h1>
+                    <p>Notzugang zu den in Kooperation mit dem ZZF Potsdam an der Staatsbibliothek zu Berlin retrodigitalisierten DDR Zeitungen, solange diese über das ZEFYS Zeitungsportal nicht erreichbar sind</p>
+                </div><!-- End: Text -->
+                <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                    <figure class="figure" style="height: 211px;width: 384px;"><img class="figure-img" src="assets/img/Kapitelbild_Geschichte_der_Zeitungen.jpg" style="width: 384px;height: 211px;">
+                        <figcaption class="figure-caption text-light">Bildquelle und Hinweise zum Copyright: <a href="https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-16714-0004,_Berlin,_Friedrichstra%C3%9Fe,_Pavillon_des_Berliner_Verlages,_Nacht.jpg">https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-16714-0004,_Berlin,_Friedrichstra%C3%9Fe,_Pavillon_des_Berliner_Verlages,_Nacht.jpg</a></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </header><!-- End: Header Blue -->
+    <!-- Start: Article Clean -->
+    <section class="article-clean">
+        <div class="container-fluid d-block float-left d-lg-flex flex-row justify-content-lg-start">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 text-center">
+                    <div class="text">
+                        <h2 class="text-secondary" style="margin: 8px;">Und so funktioniert es</h2>
+                        <p>Die gewünschte Zeitung, Ausgabe und Seite (0 = alle Seiten einer Ausgabe) in den Eingabefeldern auswählen. Der Link in der grünen Box ändert sich dynamisch mit der Auswahl und führt zu einem Download im pdf-Format. Der Zeitraum, für den Digitalisate verfügbar sind, wird in dem grauen Kasten angezeigt.</p>
+                    </div>
+                    <div class="d-inline-block">
+                        <div class="table-responsive-md m-auto">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Zeitung</th>
+                                        <th>Jahr</th>
+                                        <th>Monat</th>
+                                        <th>Tag</th>
+                                        <th>Seite (0 = alle)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><select class="form-control-sm" id="selectZeitung">
+                                                <optgroup label="Zeitung" id="auswahlZeitung">
+                                                    <option value="26120215" selected="">Berliner Zeitung</option>
+                                                    <option value="2612273X">Neue Zeit</option>
+                                                    <option value="2532889X">Neues Deutschland</option>
+                                                </optgroup>
+                                            </select></td>
+                                        <td><input class="form-control-sm input-w-6" type="number" id="auswahlJahr" name="Jahr" value="1993" min="1945" max="1993" step="1"></td>
+                                        <td><input class="form-control-sm input-w-6" type="number" id="auswahlMonat" name="Monat" value="12" min="1" max="12" step="1"></td>
+                                        <td class="d-table-cell"><input class="form-control-sm input-w-6" type="number" id="auswahlTag" name="Tag" value="31" min="1" max="31"></td>
+                                        <td><input class="form-control-sm input-w-6" type="number" id="auswahlSeite" name="Seite" value="0" min="0" max="100" required=""></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="alert alert-info" role="alert"><span id="zeitraum"><strong>Die Berliner Zeitung ist verfügbar für den Zeitraum vom 21. Mai 1945 bis zum 31. Dezember 1993</strong>.</span></div>
+                    <div class="alert alert-success" role="alert">
+                        <h3 class="text-success">URL zum Abruf der Zeitungsseite(n):</h3>
+                        <p id="generierteURL"><a href="https://content.staatsbibliothek-berlin.de/zefys/SNP26120215-19931231-0-0-0-0.pdf">https://content.staatsbibliothek-berlin.de/zefys/SNP26120215-19931231-0-0-0-0.pdf</a><br></p>
+                    </div><!-- Start: Text -->
+                    <div class="text">
+                        <p></p>
+                    </div><!-- End: Text -->
+                    <div class="text">
+                        <h2 class="text-secondary">Mehr Informationen zur DDR Presse</h2>
+                        <p>ZZF Portal "Presse in der DDR" auf Docupedia:<br><a href="https://pressegeschichte.docupedia.de/wiki/Main_Page.html">https://pressegeschichte.docupedia.de/wiki/Main_Page.html</a><br></p>
+                    </div>
+                    <div class="text">
+                        <h2 class="text-secondary">Hintergrund zum Generator</h2>
+                        <p style="margin: 8px 0px 16px;">Das ZEFYS Zeitungsportal der Staatsbibliothek zu Berlin ging im Februar nach einem Hackerangriff offline. Mittlerweile (Stand 21. 3. 2021) ist der Zugang zu den retrodigitalisierten Zeitungen wieder teilweise vorhanden. Gerade die DDR Zeitungen sind aber noch nicht über ZEFYS zugänglich. Die einzelnen Zeitungsdigitalisate sind dennoch bei Kenntnis der richtigen URL aus dem Repository der Staatsbibliothek über dessen IIIF-Schnittstelle abrufbar. Der URL-Generator auf dieser Seite hilft dabei, den richtigen Link zu generieren.</p>
+                        <p>Mehr Informationen auf der ZEFYS Seite:<br><a href="https://zefys.staatsbibliothek-berlin.de/changelog/">https://zefys.staatsbibliothek-berlin.de/changelog/</a><br>Mehr Informationen zum Aufbau der URL zum Abruf der Digitalisate:<br><a href="https://lab.sbb.berlin/zefys/">https://lab.sbb.berlin/zefys/</a><br></p>
+                    </div>
+                    <p id="test">Diese Seite ist von <a href="https://zzf-potsdam.de/de/mitarbeiter/olaf-berg">Olaf Berg (ZZF Potsdam)</a> entwickelt worden. Der Generator hilft lediglich, einen Link gemäß der Anleitung des SBB-Lab zu generieren. Die Zeitungsinhalte werden von der Staatsbibliothek zu Berlin angeboten. Es wird keine Gewähr für die Korrektheit der Angaben dieser Seite oder das Funktionieren der generierten Links gegeben.<br><a href="https://zzf-potsdam.de/de/impressum">Impressum</a> dieser Webseite</p>
+                </div>
+            </div>
+        </div>
+    </section><!-- End: Article Clean -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/url_generator.js"></script>
+</body>
+
+</html>
